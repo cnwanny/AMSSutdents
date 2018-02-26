@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/icon_item_image"
+        android:layout_width="@dimen/margin_86_dp"
+        android:layout_height="@dimen/margin_86_dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/checkbox_off_background" />
+
+    <TextView
+        android:id="@+id/app_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="应用名称"
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/font_size_18"
+        app:layout_constraintStart_toEndOf="@+id/icon_item_image"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/app_item_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="应用简要介绍"
+        android:textColor="@color/text_half_black"
+        android:textSize="@dimen/font_size_16"
+        app:layout_constraintBottom_toBottomOf="@+id/icon_item_image"
+        app:layout_constraintStart_toEndOf="@+id/icon_item_image"
+        app:layout_constraintTop_toBottomOf="@+id/app_item_name" />
+
+    <TextView
+        android:id="@+id/app_item_uninstall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:text="卸载"
+        app:layout_constraintBottom_toBottomOf="@+id/icon_item_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingBottom="@dimen/margin_3_dp"
+        android:paddingTop="@dimen/margin_3_dp"
+        android:paddingLeft="@dimen/margin_10_dp"
+        android:paddingStart="@dimen/margin_10_dp"
+        android:paddingRight="@dimen/margin_10_dp"
+        android:paddingEnd="@dimen/margin_10_dp"
+        android:background="@drawable/gley_drawable"
+        android:textSize="@dimen/font_size_16"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/app_item_enable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:textSize="@dimen/font_size_16"
+        android:paddingBottom="@dimen/margin_3_dp"
+        android:paddingTop="@dimen/margin_3_dp"
+        android:paddingLeft="@dimen/margin_10_dp"
+        android:paddingStart="@dimen/margin_10_dp"
+        android:paddingRight="@dimen/margin_10_dp"
+        android:paddingEnd="@dimen/margin_10_dp"
+        android:background="@drawable/but_drawable"
+        android:textColor="@color/white"
+        android:text="禁用"
+        app:layout_constraintBottom_toBottomOf="@+id/icon_item_image"
+        app:layout_constraintEnd_toStartOf="@+id/app_item_uninstall"
+        app:layout_constraintTop_toTopOf="parent" />
+</android.support.constraint.ConstraintLayout>

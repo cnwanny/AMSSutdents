@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
+    android:layout_height="match_parent"
+    android:background="@mipmap/login_bgimage">
+
+
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:id="@+id/install_header"
+       android:layout_height="wrap_content">
+       <ImageView
+           android:id="@+id/down_close"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:src="@mipmap/close_img"
+           android:layout_alignParentLeft="true"
+           android:layout_alignParentStart="true"
+           android:layout_margin="@dimen/margin_10_dp"
+           />
+
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_centerInParent="true"
+           android:orientation="horizontal">
+           <TextView
+               android:id="@+id/down_install"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="已安装"
+               android:textSize="@dimen/font_size_16"
+               android:paddingTop="@dimen/margin_5_dp"
+               android:paddingBottom="@dimen/margin_5_dp"
+               android:paddingEnd="@dimen/margin_15_dp"
+               android:paddingStart="@dimen/margin_15_dp"
+               android:background="@drawable/install_selected_drawable"
+               android:textColor="@color/white"/>
+           <TextView
+               android:id="@+id/down_notinstall"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="未安装"
+               android:textSize="@dimen/font_size_16"
+               android:paddingTop="@dimen/margin_5_dp"
+               android:paddingBottom="@dimen/margin_5_dp"
+               android:paddingEnd="@dimen/margin_15_dp"
+               android:paddingStart="@dimen/margin_15_dp"
+               android:background="@drawable/notinstall_drawable"
+               android:textColor="@color/white"/>
+       </LinearLayout>
+   </RelativeLayout>
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/installed_recycle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/install_header"
+        android:layout_marginEnd="@dimen/margin_144_dp"
+        android:layout_marginLeft="@dimen/margin_144_dp"
+        android:layout_marginRight="@dimen/margin_144_dp"
+        android:layout_marginStart="@dimen/margin_144_dp"
+        android:background="@color/half_white"
+        android:layout_marginTop="@dimen/margin_10_dp"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/notinstall_recycle"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/install_header"
+        android:layout_marginEnd="@dimen/margin_144_dp"
+        android:layout_marginLeft="@dimen/margin_144_dp"
+        android:layout_marginRight="@dimen/margin_144_dp"
+        android:background="@color/half_white"
+        android:layout_marginStart="@dimen/margin_144_dp"
+        android:layout_marginTop="@dimen/margin_10_dp"
+        />
+</RelativeLayout>
