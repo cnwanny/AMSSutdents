@@ -39,7 +39,7 @@ public class NotInstallAdapter extends RecyclerView.Adapter<NotInstallAdapter.In
     }
 
     @Override
-    public void onBindViewHolder(InstalledHolder holder, final int position) {
+    public void onBindViewHolder(final InstalledHolder holder, final int position) {
         ApplicationInfo data = dataList.get(position);
         PackageManager packageManager = context.getPackageManager();
         if (data != null) {
@@ -51,7 +51,7 @@ public class NotInstallAdapter extends RecyclerView.Adapter<NotInstallAdapter.In
             @Override
             public void onClick(View v) {
                 if (startDownLoadListener != null) {
-                    startDownLoadListener.startDown(position);
+                    startDownLoadListener.startDown(holder.appItemDownload ,position);
                 }
             }
         });
@@ -86,6 +86,6 @@ public class NotInstallAdapter extends RecyclerView.Adapter<NotInstallAdapter.In
 
     public interface StartDownLoadListener {
         //设置禁用还是启用
-        void startDown(int position);
+        void startDown(TextView view ,int position);
     }
 }

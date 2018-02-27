@@ -234,8 +234,6 @@ public class AllApplicationActivity extends MvpActivity<AppApplicationPresenter>
                 rexApp(dataList, data);
                 adapter.notifyDataSetChanged();
             }
-        } else {
-
         }
     }
 

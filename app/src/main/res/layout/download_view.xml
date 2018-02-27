@@ -66,7 +66,7 @@
         android:layout_marginLeft="@dimen/margin_144_dp"
         android:layout_marginRight="@dimen/margin_144_dp"
         android:layout_marginStart="@dimen/margin_144_dp"
-        android:background="@color/half_white"
+        android:background="@drawable/recycler_drawable"
         android:layout_marginTop="@dimen/margin_10_dp"
         />
 
@@ -79,7 +79,7 @@
         android:layout_marginEnd="@dimen/margin_144_dp"
         android:layout_marginLeft="@dimen/margin_144_dp"
         android:layout_marginRight="@dimen/margin_144_dp"
-        android:background="@color/half_white"
+        android:background="@drawable/recycler_drawable"
         android:layout_marginStart="@dimen/margin_144_dp"
         android:layout_marginTop="@dimen/margin_10_dp"
         />

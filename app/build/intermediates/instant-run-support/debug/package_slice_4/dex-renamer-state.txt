@@ -1,4 +1,4 @@
-#Mon Feb 26 17:12:35 CST 2018
-base.0=E\:\\AMSSutdents\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\5
+#Tue Feb 27 09:14:08 CST 2018
+base.0=E\:\\AMSSutdents\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\24
 path.0=classes.dex
 renamed.0=classes.dex

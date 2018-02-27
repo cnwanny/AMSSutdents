@@ -28,6 +28,7 @@ import com.wanny.amssutdents.amsstudent_business.downapp_mvp.DownAppImpl;
 import com.wanny.amssutdents.amsstudent_business.downapp_mvp.DownAppPresenter;
 import com.wanny.amssutdents.amsstudent_business.downapp_mvp.InstalledAdapter;
 import com.wanny.amssutdents.amsstudent_business.downapp_mvp.NotInstallAdapter;
+import com.wanny.amssutdents.amsstudent_business.downapp_mvp.UpdateEntity;
 import com.wanny.amssutdents.framework_mvpbasic.MvpActivity;
 import com.wanny.amssutdents.framework_utils.AppUtils;
 import com.wanny.amssutdents.framework_utils.StoragePath;
@@ -88,7 +89,9 @@ public class DownLoadActivity extends MvpActivity<DownAppPresenter> implements D
         initView();
         getThridAppList();
     }
-
+    //加载的进度设置显示
+    private ArrayList<UpdateEntity> progressQue = new ArrayList<>();
+    private boolean isLoading = false;
 
     private void initView() {
         installList = new ArrayList<>();
@@ -101,7 +104,7 @@ public class DownLoadActivity extends MvpActivity<DownAppPresenter> implements D
         if (installAdapter != null) {
             installedRecycle.setAdapter(installAdapter);
         }
-//        installedRecycle.addItemDecoration(new ListViewItemDecotion(mContext, ListViewItemDecotion.ORIVATION_VERCAL, R.drawable.listview_itemdec_drawable));
+        installedRecycle.addItemDecoration(new ListViewItemDecotion(mContext, ListViewItemDecotion.ORIVATION_VERCAL, R.drawable.listview_1dp_drawabel));
         installAdapter.setInstalledListener(installedListener);
 
 
@@ -110,7 +113,7 @@ public class DownLoadActivity extends MvpActivity<DownAppPresenter> implements D
         if (notInstallAdapter != null) {
             notinstallRecycle.setAdapter(notInstallAdapter);
         }
-//        notinstallRecycle.addItemDecoration(new ListViewItemDecotion(mContext, ListViewItemDecotion.ORIVATION_VERCAL, R.drawable.listview_itemdec_drawable));
+        notinstallRecycle.addItemDecoration(new ListViewItemDecotion(mContext, ListViewItemDecotion.ORIVATION_VERCAL, R.drawable.listview_1dp_drawabel));
         notInstallAdapter.setStartDownLoadListener(startDownLoadListener);
 
 
@@ -124,20 +127,33 @@ public class DownLoadActivity extends MvpActivity<DownAppPresenter> implements D
     private InstalledAdapter.InstalledListener installedListener = new InstalledAdapter.InstalledListener() {
         @Override
         public void setEnable(int position) {
-
+            //
+            PackageInfo info = installList.get(position);
+            PackageManager pm = getPackageManager();
+            if (info.applicationInfo.enabled) {
+                pm.setApplicationEnabledSetting(info.packageName, PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER, 0);
+            } else {
+                pm.setApplicationEnabledSetting(info.packageName, PackageManager.COMPONENT_ENABLED_STATE_DEFAULT, 0);
+            }
+            installAdapter.notifyItemChanged(position);
         }
 
         @Override
         public void uninstall(int position) {
-
+            //卸载应用
+            PackageInfo info = installList.get(position);
+            Uri uri = Uri.fromParts("package", info.applicationInfo.packageName, null);
+            Intent intent = new Intent(Intent.ACTION_DELETE, uri);
+            startActivity(intent);
         }
     };
 
-
+    private TextView mTextView;
     private NotInstallAdapter.StartDownLoadListener startDownLoadListener = new NotInstallAdapter.StartDownLoadListener() {
         @Override
-        public void startDown(int position) {
+        public void startDown(TextView textView, int position) {
             //启动下载
+            mTextView = textView;
             selectPos = position;
             appName = notInstallList.get(position).getAppName();
             String appUrl = "http://118.190.201.93:81/DownLoadFile.ashx?appId=" + notInstallList.get(position).getAppID();
@@ -151,14 +167,14 @@ public class DownLoadActivity extends MvpActivity<DownAppPresenter> implements D
     private void startDownLoad(String appUpdateUrl, String appName) {
         String localpath;
         if (!TextUtils.isEmpty(StoragePath.apkDir)) {
-            File file = new File(StoragePath.apkDir, appName);
+            File file = new File(StoragePath.apkDir, appName + ".apk");
             if (file.exists()) {
                 file.delete();
             }
-            localpath = StoragePath.apkDir + "/" + appName;
+            localpath = StoragePath.apkDir + "/" + appName + ".apk";
         } else {
             StoragePath.createDirs();
-            localpath = StoragePath.apkDir + "/" + appName;
+            localpath = StoragePath.apkDir + "/" + appName + ".apk";
         }
         File locaFile = new File(localpath);
         if (locaFile.exists()) {
@@ -231,7 +247,7 @@ public class DownLoadActivity extends MvpActivity<DownAppPresenter> implements D
                 startActivity(intent);
             }
         }
-        File apkFile = new File(StoragePath.apkDir + "/" + appName);
+        File apkFile = new File(StoragePath.apkDir + "/" + appName + ".apk");
         if (!apkFile.exists()) {
             return;
         }
@@ -284,9 +300,11 @@ public class DownLoadActivity extends MvpActivity<DownAppPresenter> implements D
             super.handleMessage(msg);
             //当前经度
             if (msg.what == 0x0001) {
-                View view = notinstallRecycle.getLayoutManager().getChildAt(0);
-                TextView progress = (TextView) view.findViewById(R.id.down_notinstall);
-                progress.setText((String) (msg.obj).toString());
+//                View view = notinstallRecycle.getLayoutManager().getChildAt(0);
+//                TextView progress = (TextView) view.findViewById(R.id.down_notinstall);
+                if (mTextView != null) {
+                    mTextView.setText((String) (msg.obj).toString() + "%");
+                }
             }
         }
     };
@@ -300,7 +318,7 @@ public class DownLoadActivity extends MvpActivity<DownAppPresenter> implements D
         for (int i = 0; i < packageInfoList.size(); i++) {
             PackageInfo pak = (PackageInfo) packageInfoList.get(i);
             //判断是否为系统预装的应用
-            if ((pak.applicationInfo.flags & pak.applicationInfo.FLAG_SYSTEM) <= 0 & !pak.applicationInfo.enabled) {
+            if ((pak.applicationInfo.flags & pak.applicationInfo.FLAG_SYSTEM) <= 0 ) {
                 // 第三方应用
                 dataList.add(pak);
             }
