@@ -138,7 +138,7 @@ public class AllApplicationActivity extends MvpActivity<AppApplicationPresenter>
         for (int i = 0; i < packageInfoList.size(); i++) {
             PackageInfo pak = (PackageInfo) packageInfoList.get(i);
             //判断是否为系统预装的应用
-            if ((pak.applicationInfo.flags & pak.applicationInfo.FLAG_SYSTEM) <= 0 & !pak.applicationInfo.enabled) {
+            if ((pak.applicationInfo.flags & pak.applicationInfo.FLAG_SYSTEM) <= 0) {
                 // 第三方应用
                 dataList.add(pak);
             }

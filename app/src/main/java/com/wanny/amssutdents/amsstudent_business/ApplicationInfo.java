@@ -67,6 +67,17 @@ public class ApplicationInfo implements Parcelable {
     /// </summary>
     public String  uploadTime ;
 
+    public String  appIco ;
+
+
+    public String getAppIco() {
+        return appIco;
+    }
+
+    public void setAppIco(String appIco) {
+        this.appIco = appIco;
+    }
+
     /// <summary>
     /// 是否强制更新
     /// </summary>
@@ -199,6 +210,7 @@ public class ApplicationInfo implements Parcelable {
         dest.writeString(this.appFileName);
         dest.writeString(this.uploador);
         dest.writeString(this.uploadTime);
+        dest.writeString(this.appIco);
         dest.writeInt(this.isAutoUpdate);
     }
 
@@ -215,6 +227,7 @@ public class ApplicationInfo implements Parcelable {
         this.appFileName = in.readString();
         this.uploador = in.readString();
         this.uploadTime = in.readString();
+        this.appIco = in.readString();
         this.isAutoUpdate = in.readInt();
     }
 

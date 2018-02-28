@@ -87,6 +87,17 @@
             android:screenOrientation="landscape"
             android:theme="@style/TranslucentSystemBar" />
 
+        <receiver
+            android:name="com.wanny.amssutdents.framework_ui.DownLoadActivity$AppInstallReceiver"
+            android:enabled="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
         <meta-data
             android:name="android.support.VERSION"
             android:value="26.1.0" />

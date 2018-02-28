@@ -3,11 +3,14 @@ package com.wanny.amssutdents.amsstudent_business.downapp_mvp;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 import com.wanny.amssutdents.R;
 import com.wanny.amssutdents.amsstudent_business.ApplicationInfo;
 import java.util.ArrayList;
@@ -43,7 +46,9 @@ public class NotInstallAdapter extends RecyclerView.Adapter<NotInstallAdapter.In
         ApplicationInfo data = dataList.get(position);
         PackageManager packageManager = context.getPackageManager();
         if (data != null) {
-            holder.iconNotitemImage.setImageResource(R.mipmap.ic_launcher_round);
+            if(!TextUtils.isEmpty(data.getAppIco())){
+                Glide.with(context).load(data.getAppIco()).into(holder.iconNotitemImage);
+            }
             holder.appNotitemName.setText(data.getAppName());
             holder.appNotitemDetail.setText(data.getAppName());
         }

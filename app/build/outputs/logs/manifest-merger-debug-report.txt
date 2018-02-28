@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-89:12
-INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-89:12
-INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-89:12
-INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-89:12
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-99:12
+INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-99:12
+INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-99:12
+INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-99:12
 MERGED from [com.android.support:design:26.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\5ba96bfecef770e540dd547a1303d7a1\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\2a6a5fcbca7d820cb35027346122b6d8\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\98d1d4f47992e9471ade1e35d733d1b8\AndroidManifest.xml:2:1-11:12
@@ -23,20 +23,20 @@ MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Administrat
 MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\714135a4b68e61f21a17e61af53f820a\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\f243d299e7951d2f761f12b2eb0be63d\AndroidManifest.xml:17:1-31:12
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\cbab6fa246bc9a8b9f8a2cae024c0505\AndroidManifest.xml:17:1-30:12
-INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-89:12
-INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-89:12
-INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-89:12
+INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-99:12
+INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-99:12
+INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-99:12
 	package
 		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:3:5-36
 		INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml
 		INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-89:12
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-99:12
 		INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-89:12
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-99:12
 		INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:11-69
@@ -129,7 +129,7 @@ ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:46:5-68
 	android:name
 		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:46:22-65
 application
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:48:5-87:19
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:48:5-97:19
 MERGED from [com.android.support:design:26.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\5ba96bfecef770e540dd547a1303d7a1\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:design:26.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\5ba96bfecef770e540dd547a1303d7a1\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\2a6a5fcbca7d820cb35027346122b6d8\AndroidManifest.xml:25:5-29:19
@@ -224,6 +224,26 @@ ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:83:9-86:59
 		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:86:13-56
 	android:name
 		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:84:13-58
+receiver#com.wanny.amssutdents.framework_ui.DownLoadActivity$AppInstallReceiver
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:88:9-95:20
+	android:enabled
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:89:78-100
+	android:name
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:89:13-77
+intent-filter#android.intent.action.PACKAGE_ADDED+android.intent.action.PACKAGE_REMOVED
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:90:13-94:29
+action#android.intent.action.PACKAGE_ADDED
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:91:17-78
+	android:name
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:91:25-75
+action#android.intent.action.PACKAGE_REMOVED
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:92:17-80
+	android:name
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:92:25-77
+data
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:93:17-50
+	android:scheme
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:93:23-47
 uses-sdk
 INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml
