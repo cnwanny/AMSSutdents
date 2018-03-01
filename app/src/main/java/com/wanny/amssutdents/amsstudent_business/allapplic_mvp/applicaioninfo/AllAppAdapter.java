@@ -10,7 +10,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.wanny.amssutdents.R;
+import com.wanny.amssutdents.amsstudent_business.ApplicationInfo;
 
 import java.util.ArrayList;
 
@@ -27,25 +29,25 @@ public class AllAppAdapter extends RecyclerView.Adapter<AllAppAdapter.AllAppHold
 
 
 
-    private ArrayList<PackageInfo> dataList;
+    private ArrayList<ApplicationInfo> dataList;
     private Context context;
 
-    public AllAppAdapter(ArrayList<PackageInfo> dataList, Context context) {
+    public AllAppAdapter(ArrayList<ApplicationInfo> dataList, Context context) {
         this.dataList = dataList;
         this.context = context;
     }
 
-    public AllAppAdapter(ArrayList<PackageInfo> dataList, Context context, OperateListener operateListener) {
+    public AllAppAdapter(ArrayList<ApplicationInfo> dataList, Context context, OperateListener operateListener) {
         this.dataList = dataList;
         this.context = context;
         this.operateListener = operateListener;
     }
 
-    public ArrayList<PackageInfo> getDataList() {
+    public ArrayList<ApplicationInfo> getDataList() {
         return dataList;
     }
 
-    public void setDataList(ArrayList<PackageInfo> dataList) {
+    public void setDataList(ArrayList<ApplicationInfo> dataList) {
         this.dataList = dataList;
     }
 
@@ -66,11 +68,10 @@ public class AllAppAdapter extends RecyclerView.Adapter<AllAppAdapter.AllAppHold
     @Override
     public void onBindViewHolder(AllAppHolder holder, final int position) {
        if(dataList != null){
-           PackageManager packageManager = context.getPackageManager();
-           PackageInfo info = dataList.get(position);
+           ApplicationInfo info = dataList.get(position);
            if(info != null){
-               holder.appicon.setImageDrawable(info.applicationInfo.loadIcon(packageManager));
-               holder.appname.setText(info.applicationInfo.loadLabel(packageManager));
+               Glide.with(context).load(info.getAppIco()).into(holder.appicon);
+               holder.appname.setText(info.getAppName());
            }
        }
        holder.itemView.setOnClickListener(new View.OnClickListener() {

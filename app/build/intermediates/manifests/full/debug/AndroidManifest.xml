@@ -54,10 +54,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.wanny.amssutdents.framework_ui.LoginActivity"
+            android:name="com.wanny.amssutdents.framework_ui.AllApplicationActivity"
             android:label="@string/app_name"
             android:screenOrientation="landscape"
             android:theme="@style/TranslucentSystemBar" >
@@ -79,7 +78,7 @@
         </provider>
 
         <activity
-            android:name="com.wanny.amssutdents.framework_ui.AllApplicationActivity"
+            android:name="com.wanny.amssutdents.framework_ui.LoginActivity"
             android:screenOrientation="landscape"
             android:theme="@style/TranslucentSystemBar" />
         <activity
@@ -97,6 +96,13 @@
                 <data android:scheme="package" />
             </intent-filter>
         </receiver>
+
+        <service
+            android:name="com.wanny.amssutdents.framework_ui.service.ControlNetService"
+            android:enabled="true" />
+        <service
+            android:name="com.wanny.amssutdents.framework_ui.service.LocationUploadService"
+            android:enabled="true" />
 
         <meta-data
             android:name="android.support.VERSION"

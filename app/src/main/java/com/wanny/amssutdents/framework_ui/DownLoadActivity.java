@@ -126,7 +126,7 @@ public class DownLoadActivity extends MvpActivity<DownAppPresenter> implements D
 
         BodyReq bodyReq = new BodyReq();
         bodyReq.setMac("04:e6:76:c3:74:32");
-        bodyReq.setStudentNumber("20171212001");
+        bodyReq.setStudentNumber("cc20171212001");
         mvpPresenter.getAppList(bodyReq, "正在加载");
     }
 

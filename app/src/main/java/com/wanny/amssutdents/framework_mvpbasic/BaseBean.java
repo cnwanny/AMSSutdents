@@ -9,15 +9,15 @@ package com.wanny.amssutdents.framework_mvpbasic;
 public class BaseBean<T> {
     private boolean Status;
     private String Message;
-    private int code;
+    private String code;
     private T Data;
     private String key;
 
-    public int getCode() {
+    public String getCode() {
         return code;
     }
 
-    public void setCode(int code) {
+    public void setCode(String code) {
         this.code = code;
     }
 

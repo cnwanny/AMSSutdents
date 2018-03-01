@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-86:12
-INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-86:12
-INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-86:12
-INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-86:12
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-106:12
+INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-106:12
+INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-106:12
+INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-106:12
 MERGED from [com.android.support:design:26.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\5ba96bfecef770e540dd547a1303d7a1\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\2a6a5fcbca7d820cb35027346122b6d8\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\98d1d4f47992e9471ade1e35d733d1b8\AndroidManifest.xml:2:1-11:12
@@ -23,121 +23,115 @@ MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Administrat
 MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\714135a4b68e61f21a17e61af53f820a\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\f243d299e7951d2f761f12b2eb0be63d\AndroidManifest.xml:17:1-31:12
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\cbab6fa246bc9a8b9f8a2cae024c0505\AndroidManifest.xml:17:1-30:12
-INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-86:12
-INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-86:12
-INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-86:12
+INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-106:12
+INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-106:12
+INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-106:12
 	package
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:3:5-36
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:4:5-36
 		INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml
 		INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml
-	android:sharedUserId
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:4:5-46
 	android:versionName
 		INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-86:12
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-106:12
 		INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-86:12
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-106:12
 		INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:11-69
-permission#android.permission.CHANGE_COMPONENT_ENABLED_STATE
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:7:5-9:55
-	android:protectionLevel
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:9:9-52
-	android:name
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:8:9-73
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:12:5-80
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:15:5-80
 	android:name
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:12:22-77
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:15:22-77
 uses-permission#android.permission.CAMERA
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:13:5-65
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:16:5-65
 	android:name
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:13:22-62
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:16:22-62
 uses-permission#android.permission.ACCESS_GPS
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:14:5-69
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:17:5-69
 	android:name
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:14:22-66
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:17:22-66
 uses-permission#android.permission.ACCESS_ASSISTED_GPS
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:15:5-78
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:18:5-78
 	android:name
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:15:22-75
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:18:22-75
 uses-permission#android.permission.ACCESS_LOCATION
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:16:5-74
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:19:5-74
 	android:name
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:16:22-71
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:19:22-71
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:18:5-81
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:21:5-81
 	android:name
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:18:22-78
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:21:22-78
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:20:5-79
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:23:5-79
 	android:name
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:20:22-76
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:23:22-76
 uses-permission#android.permission.ACCESS_WIFI_STATE
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:22:5-76
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:25:5-76
 	android:name
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:22:22-73
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:25:22-73
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:24:5-79
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:27:5-79
 	android:name
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:24:22-76
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:27:22-76
 uses-permission#android.permission.CHANGE_WIFI_STATE
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:26:5-76
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:29:5-76
 	android:name
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:26:22-73
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:29:22-73
 uses-permission#android.permission.READ_PHONE_STATE
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:28:5-75
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:31:5-75
 	android:name
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:28:22-72
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:31:22-72
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:30:5-81
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:33:5-81
 	android:name
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:30:22-78
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:33:22-78
 uses-permission#android.permission.INTERNET
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:32:5-67
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:35:5-67
 	android:name
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:32:22-64
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:35:22-64
 uses-permission#android.permission.MOUNT_UNMOUNT_FILESYSTEMS
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:34:5-84
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:37:5-84
 	android:name
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:34:22-81
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:37:22-81
 uses-permission#android.permission.EXPAND_STATUS_BAR
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:36:5-76
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:39:5-76
 	android:name
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:36:22-73
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:39:22-73
 uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:37:5-81
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:40:5-81
 	android:name
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:37:22-78
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:40:22-78
 uses-permission#android.permission.BROADCAST_STICKY
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:38:5-75
-	android:name
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:38:22-72
-uses-permission#android.permission.WAKE_LOCK
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:39:5-68
-	android:name
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:39:22-65
-uses-permission#android.permission.WRITE_SETTINGS
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:40:5-73
-	android:name
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:40:22-70
-uses-permission#android.permission.DISABLE_KEYGUARD
 ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:41:5-75
 	android:name
 		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:41:22-72
-uses-permission#android.permission.GET_TASKS
+uses-permission#android.permission.WAKE_LOCK
 ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:42:5-68
 	android:name
 		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:42:22-65
-uses-permission#android.permission.BLUETOOTH
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:43:5-68
+uses-permission#android.permission.WRITE_SETTINGS
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:43:5-73
 	android:name
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:43:22-65
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:43:22-70
+uses-permission#android.permission.DISABLE_KEYGUARD
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:44:5-75
+	android:name
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:44:22-72
+uses-permission#android.permission.GET_TASKS
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:45:5-68
+	android:name
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:45:22-65
+uses-permission#android.permission.BLUETOOTH
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:46:5-68
+	android:name
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:46:22-65
 application
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:45:5-84:19
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:48:5-104:19
 MERGED from [com.android.support:design:26.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\5ba96bfecef770e540dd547a1303d7a1\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:design:26.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\5ba96bfecef770e540dd547a1303d7a1\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\2a6a5fcbca7d820cb35027346122b6d8\AndroidManifest.xml:25:5-29:19
@@ -169,69 +163,101 @@ MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Administrator\.
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\cbab6fa246bc9a8b9f8a2cae024c0505\AndroidManifest.xml:24:5-28:19
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\cbab6fa246bc9a8b9f8a2cae024c0505\AndroidManifest.xml:24:5-28:19
 	android:supportsRtl
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:50:9-35
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:53:9-35
 	android:label
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:48:9-41
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:51:9-41
 	android:roundIcon
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:49:9-54
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:52:9-54
 	android:icon
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:47:9-43
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:50:9-43
 	android:allowBackup
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:46:9-35
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:49:9-35
 	android:theme
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:51:9-40
-activity#com.wanny.amssutdents.framework_ui.LoginActivity
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:52:9-62:20
-	android:screenOrientation
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:55:13-50
-	android:label
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:54:13-45
-	android:theme
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:56:13-56
-	android:name
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:53:13-55
-intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:57:13-61:29
-action#android.intent.action.MAIN
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:58:17-69
-	android:name
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:58:25-66
-category#android.intent.category.LAUNCHER
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:60:17-77
-	android:name
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:60:27-74
-provider#android.support.v4.content.FileProvider
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:64:9-72:20
-	android:grantUriPermissions
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:68:13-47
-	android:authorities
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:66:13-69
-	android:exported
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:67:13-37
-	android:name
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:65:13-67
-meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:69:13-71:54
-	android:resource
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:71:17-51
-	android:name
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:70:17-67
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:54:9-40
 activity#com.wanny.amssutdents.framework_ui.AllApplicationActivity
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:75:9-78:59
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:55:9-65:20
 	android:screenOrientation
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:77:13-50
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:58:13-50
+	android:label
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:57:13-45
 	android:theme
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:78:13-56
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:59:13-56
 	android:name
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:76:13-64
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:56:13-64
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:60:13-64:29
+action#android.intent.action.MAIN
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:61:17-69
+	android:name
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:61:25-66
+category#android.intent.category.LAUNCHER
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:63:17-77
+	android:name
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:63:27-74
+provider#android.support.v4.content.FileProvider
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:67:9-75:20
+	android:grantUriPermissions
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:71:13-47
+	android:authorities
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:69:13-69
+	android:exported
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:70:13-37
+	android:name
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:68:13-67
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:72:13-74:54
+	android:resource
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:74:17-51
+	android:name
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:73:17-67
+activity#com.wanny.amssutdents.framework_ui.LoginActivity
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:78:9-81:59
+	android:screenOrientation
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:80:13-50
+	android:theme
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:81:13-56
+	android:name
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:79:13-55
 activity#com.wanny.amssutdents.framework_ui.DownLoadActivity
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:80:9-83:59
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:83:9-86:59
 	android:screenOrientation
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:82:13-50
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:85:13-50
 	android:theme
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:83:13-56
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:86:13-56
 	android:name
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:81:13-58
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:84:13-58
+receiver#com.wanny.amssutdents.framework_ui.DownLoadActivity$AppInstallReceiver
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:88:9-95:20
+	android:enabled
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:89:78-100
+	android:name
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:89:13-77
+intent-filter#android.intent.action.PACKAGE_ADDED+android.intent.action.PACKAGE_REMOVED
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:90:13-94:29
+action#android.intent.action.PACKAGE_ADDED
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:91:17-78
+	android:name
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:91:25-75
+action#android.intent.action.PACKAGE_REMOVED
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:92:17-80
+	android:name
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:92:25-77
+data
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:93:17-50
+	android:scheme
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:93:23-47
+service#com.wanny.amssutdents.framework_ui.service.ControlNetService
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:97:9-99:15
+	android:enabled
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:98:13-35
+	android:name
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:97:18-72
+service#com.wanny.amssutdents.framework_ui.service.LocationUploadService
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:101:9-103:15
+	android:enabled
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:102:13-35
+	android:name
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:101:18-76
 uses-sdk
 INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml

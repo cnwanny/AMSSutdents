@@ -48,7 +48,7 @@ public class LoginActivity extends MvpActivity<LoginPresenter> implements LoginI
     void startLogin(View view){
         BodyReq bodyReq = new BodyReq();
         bodyReq.setMac("04:e6:76:c3:74:32");
-        bodyReq.setStudentNumber("20171212001");
+        bodyReq.setStudentNumber("cc20171212001");
         mvpPresenter.login(bodyReq,"正在登录");
     }
 
@@ -57,11 +57,12 @@ public class LoginActivity extends MvpActivity<LoginPresenter> implements LoginI
 
     @Override
     public void success(LoginEntity s) {
+        Toast.makeText(mContext,s.getMessage(),Toast.LENGTH_SHORT).show();
         if(s.isStatus()){
-            Toast.makeText(mContext,s.getMessage(),Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(LoginActivity.this , AllApplicationActivity.class);
+            startActivity(intent);
         }
-        Intent intent = new Intent(LoginActivity.this , AllApplicationActivity.class);
-        startActivity(intent);
+
     }
 
     @Override

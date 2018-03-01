@@ -3,10 +3,18 @@ package com.wanny.amssutdents.framework_net.retrofit;
 
 import com.wanny.amssutdents.amsstudent_business.BodyReq;
 import com.wanny.amssutdents.amsstudent_business.allapplic_mvp.EquipmentResult;
+import com.wanny.amssutdents.amsstudent_business.allapplic_mvp.OpenBody;
+import com.wanny.amssutdents.amsstudent_business.allapplic_mvp.applicaioninfo.AppContralTimeResult;
+import com.wanny.amssutdents.amsstudent_business.allapplic_mvp.applicaioninfo.AppControlBody;
 import com.wanny.amssutdents.amsstudent_business.allapplic_mvp.applicaioninfo.ApplicationResult;
+import com.wanny.amssutdents.amsstudent_business.location_save.LocationBody;
 import com.wanny.amssutdents.amsstudent_business.login_mvp.LoginEntity;
+import com.wanny.amssutdents.framework_care.OrdinalBooleanEntity;
+import com.wanny.amssutdents.framework_care.OrdinalResultEntity;
 
 import retrofit2.http.Body;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
@@ -24,7 +32,8 @@ public interface ApiStores {
 //    String API_SERVER_URL = "http://183.230.7.249:9022/api/";
     //测试外网
     String API_SERVER_URL = "http://118.190.201.93:81/";
-//
+
+    //
     //汪琪诗
 //    String API_SERVER_URL = "http://192.168.5.247:8088/api/" ;
     //陈良勇
@@ -36,13 +45,31 @@ public interface ApiStores {
     Observable<LoginEntity> login(@Body BodyReq loginBody);
 
 
-
     @POST("UserService.svc/GetEquipmentInfoBymacNo")
     Observable<EquipmentResult> getEquipInfo(@Body BodyReq loginBody);
 
 
     @POST("AppFile.svc/GetUserAppList")
     Observable<ApplicationResult> getAppList(@Body BodyReq loginBody);
+
+
+    @POST("MapLocus.svc/PutMapLocus")
+    Observable<OrdinalResultEntity> saveLocation(@Body LocationBody loginBody);
+
+
+    @POST("UserService.svc/UserTrailTime")
+    Observable<OrdinalResultEntity> saveOpenTime(@Body OpenBody body);
+
+
+    //获取app的控制时间
+    @POST("AppFile.svc/AppControl")
+    Observable<OrdinalBooleanEntity> getAppControl(@Body AppControlBody body);
+
+
+    @POST("AppFile.svc/GetAppControlData")
+    Observable<AppContralTimeResult> getTime(@Body BodyReq body);
+
+
 //
 //    //获取列表
 //    @GET("Project/GetBackPriceList")

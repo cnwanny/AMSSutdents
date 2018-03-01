@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-99:12
-INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-99:12
-INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-99:12
-INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-99:12
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-106:12
+INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-106:12
+INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-106:12
+INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-106:12
 MERGED from [com.android.support:design:26.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\5ba96bfecef770e540dd547a1303d7a1\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\2a6a5fcbca7d820cb35027346122b6d8\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\98d1d4f47992e9471ade1e35d733d1b8\AndroidManifest.xml:2:1-11:12
@@ -23,20 +23,22 @@ MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Administrat
 MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\714135a4b68e61f21a17e61af53f820a\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\f243d299e7951d2f761f12b2eb0be63d\AndroidManifest.xml:17:1-31:12
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\cbab6fa246bc9a8b9f8a2cae024c0505\AndroidManifest.xml:17:1-30:12
-INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-99:12
-INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-99:12
-INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-99:12
+INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-106:12
+INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-106:12
+INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-106:12
 	package
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:3:5-36
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:4:5-36
 		INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml
 		INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-99:12
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-106:12
 		INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-99:12
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:1-106:12
 		INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:2:11-69
@@ -129,7 +131,7 @@ ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:46:5-68
 	android:name
 		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:46:22-65
 application
-ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:48:5-97:19
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:48:5-104:19
 MERGED from [com.android.support:design:26.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\5ba96bfecef770e540dd547a1303d7a1\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:design:26.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\5ba96bfecef770e540dd547a1303d7a1\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\2a6a5fcbca7d820cb35027346122b6d8\AndroidManifest.xml:25:5-29:19
@@ -172,7 +174,7 @@ MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Administrator\.gradl
 		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:49:9-35
 	android:theme
 		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:54:9-40
-activity#com.wanny.amssutdents.framework_ui.LoginActivity
+activity#com.wanny.amssutdents.framework_ui.AllApplicationActivity
 ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:55:9-65:20
 	android:screenOrientation
 		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:58:13-50
@@ -181,7 +183,7 @@ ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:55:9-65:20
 	android:theme
 		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:59:13-56
 	android:name
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:56:13-55
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:56:13-64
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
 ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:60:13-64:29
 action#android.intent.action.MAIN
@@ -208,14 +210,14 @@ ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:72:13-74:54
 		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:74:17-51
 	android:name
 		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:73:17-67
-activity#com.wanny.amssutdents.framework_ui.AllApplicationActivity
+activity#com.wanny.amssutdents.framework_ui.LoginActivity
 ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:78:9-81:59
 	android:screenOrientation
 		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:80:13-50
 	android:theme
 		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:81:13-56
 	android:name
-		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:79:13-64
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:79:13-55
 activity#com.wanny.amssutdents.framework_ui.DownLoadActivity
 ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:83:9-86:59
 	android:screenOrientation
@@ -244,6 +246,18 @@ data
 ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:93:17-50
 	android:scheme
 		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:93:23-47
+service#com.wanny.amssutdents.framework_ui.service.ControlNetService
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:97:9-99:15
+	android:enabled
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:98:13-35
+	android:name
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:97:18-72
+service#com.wanny.amssutdents.framework_ui.service.LocationUploadService
+ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:101:9-103:15
+	android:enabled
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:102:13-35
+	android:name
+		ADDED from E:\AMSSutdents\app\src\main\AndroidManifest.xml:101:18-76
 uses-sdk
 INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from E:\AMSSutdents\app\src\main\AndroidManifest.xml

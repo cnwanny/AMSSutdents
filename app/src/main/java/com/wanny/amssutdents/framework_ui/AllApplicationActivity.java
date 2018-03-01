@@ -24,8 +24,13 @@ import com.wanny.amssutdents.amsstudent_business.allapplic_mvp.AppApplicationPre
 import com.wanny.amssutdents.amsstudent_business.allapplic_mvp.ClassInfo;
 import com.wanny.amssutdents.amsstudent_business.allapplic_mvp.EquipmentInfo;
 import com.wanny.amssutdents.amsstudent_business.allapplic_mvp.EquipmentResult;
+import com.wanny.amssutdents.amsstudent_business.allapplic_mvp.OpenBody;
 import com.wanny.amssutdents.amsstudent_business.allapplic_mvp.applicaioninfo.AllAppAdapter;
+import com.wanny.amssutdents.amsstudent_business.allapplic_mvp.applicaioninfo.AppContralTimeResult;
+import com.wanny.amssutdents.amsstudent_business.allapplic_mvp.applicaioninfo.AppControlBody;
 import com.wanny.amssutdents.amsstudent_business.allapplic_mvp.applicaioninfo.ApplicationResult;
+import com.wanny.amssutdents.framework_care.OrdinalBooleanEntity;
+import com.wanny.amssutdents.framework_care.OrdinalResultEntity;
 import com.wanny.amssutdents.framework_mvpbasic.MvpActivity;
 import com.wanny.amssutdents.framework_view.MorePopWindow;
 
@@ -63,7 +68,7 @@ public class AllApplicationActivity extends MvpActivity<AppApplicationPresenter>
     private AllAppAdapter adapter;
     private ArrayList<PackageInfo> dataList;
     private GridLayoutManager gridLayoutManager;
-    private ArrayList<PackageInfo> installList;
+    private ArrayList<ApplicationInfo> installList;
 
 
     @Override
@@ -73,7 +78,7 @@ public class AllApplicationActivity extends MvpActivity<AppApplicationPresenter>
         ButterKnife.bind(this);
         BodyReq bodyReq = new BodyReq();
         bodyReq.setMac("04:e6:76:c3:74:32");
-        bodyReq.setStudentNumber("20171212001");
+        bodyReq.setStudentNumber("cc20171212001");
         mvpPresenter.getEquipInfo(bodyReq, "正在加载");
         mvpPresenter.getAppList(bodyReq, "正在加载");
         initView();
@@ -92,13 +97,36 @@ public class AllApplicationActivity extends MvpActivity<AppApplicationPresenter>
         allappRecycler.setAdapter(adapter);
     }
 
+
+    private int selectPos = -1;
+
     private AllAppAdapter.OperateListener operateListener = new AllAppAdapter.OperateListener() {
         @Override
         public void startOperate(int position) {
-            startActivityByPackageName(installList.get(position).packageName);
+            AppControlBody body = new AppControlBody();
+            body.setMac("04:e6:76:c3:74:32");
+            body.setStudentNumber("cc20171212001");
+            body.setAppId(installList.get(position).getAppID());
+            mvpPresenter.getAppControl(body,"正在查询");
+            selectPos = position ;
+//            startActivityByPackageName(installList.get(position).packageName);
         }
     };
 
+
+    private boolean need = true;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(true){
+            if(mvpPresenter != null){
+                OpenBody body = new OpenBody();
+                body.setMac("04:e6:76:c3:74:32");
+                mvpPresenter.setStartTime(body,"");
+            }
+        }
+    }
 
     @Override
     public void success(EquipmentResult s) {
@@ -122,10 +150,21 @@ public class AllApplicationActivity extends MvpActivity<AppApplicationPresenter>
                 }
             }
         } else {
-            Toast.makeText(mContext, s.getMessage(), Toast.LENGTH_SHORT).show();
+            if(s.getCode().equals("999") ){
+                Toast.makeText(mContext,s.getMessage(),Toast.LENGTH_SHORT).show();
+                need = false;
+                Intent intent = new Intent(AllApplicationActivity.this , LoginActivity.class);
+                startActivity(intent);
+
+            }
         }
     }
 
+
+    @Override
+    public void saveTime(OrdinalResultEntity entity) {
+
+    }
 
     @OnClick(R.id.more)
     void showPop(View view) {
@@ -149,42 +188,47 @@ public class AllApplicationActivity extends MvpActivity<AppApplicationPresenter>
 
 
     private void startActivityByPackageName(String packagename) {
-        // 通过包名获取此APP详细信息，包括Activities、services、versioncode、name等等
-        PackageInfo packageinfo = null;
-        try {
-            packageinfo = getPackageManager().getPackageInfo(packagename, 0);
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-        if (packageinfo == null) {
-            return;
-        }
 
-        // 创建一个类别为CATEGORY_LAUNCHER的该包名的Intent
-        Intent resolveIntent = new Intent(Intent.ACTION_MAIN, null);
-        resolveIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-        resolveIntent.setPackage(packageinfo.packageName);
+        PackageManager packageManager = mContext.getPackageManager();
+        Intent it= packageManager.getLaunchIntentForPackage(packagename);
+        startActivity(it);
 
-        // 通过getPackageManager()的queryIntentActivities方法遍历
-        List<ResolveInfo> resolveinfoList = getPackageManager()
-                .queryIntentActivities(resolveIntent, 0);
-        if (resolveinfoList.iterator().next() != null) {
-            ResolveInfo resolveinfo = resolveinfoList.iterator().next();
-            if (resolveinfo != null) {
-                // packagename = 参数packname
-                String packageName = resolveinfo.activityInfo.packageName;
-                // 这个就是我们要找的该APP的LAUNCHER的Activity[组织形式：packagename.mainActivityname]
-                String className = resolveinfo.activityInfo.name;
-                // LAUNCHER Intent
-                Intent intent = new Intent(Intent.ACTION_MAIN);
-                intent.addCategory(Intent.CATEGORY_LAUNCHER);
-
-                // 设置ComponentName参数1:packagename参数2:MainActivity路径
-                ComponentName cn = new ComponentName(packageName, className);
-                intent.setComponent(cn);
-                startActivity(intent);
-            }
-        }
+//        // 通过包名获取此APP详细信息，包括Activities、services、versioncode、name等等
+//        PackageInfo packageinfo = null;
+//        try {
+//            packageinfo = getPackageManager().getPackageInfo(packagename, 0);
+//        } catch (PackageManager.NameNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//        if (packageinfo == null) {
+//            return;
+//        }
+//        need = false;
+//        // 创建一个类别为CATEGORY_LAUNCHER的该包名的Intent
+//        Intent resolveIntent = new Intent(Intent.ACTION_MAIN, null);
+//        resolveIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+//        resolveIntent.setPackage(packageinfo.packageName);
+//
+//        // 通过getPackageManager()的queryIntentActivities方法遍历
+//        List<ResolveInfo> resolveinfoList = getPackageManager()
+//                .queryIntentActivities(resolveIntent, 0);
+//        if (resolveinfoList.iterator().next() != null) {
+//            ResolveInfo resolveinfo = resolveinfoList.iterator().next();
+//            if (resolveinfo != null) {
+//                // packagename = 参数packname
+//                String packageName = resolveinfo.activityInfo.packageName;
+//                // 这个就是我们要找的该APP的LAUNCHER的Activity[组织形式：packagename.mainActivityname]
+//                String className = resolveinfo.activityInfo.name;
+//                // LAUNCHER Intent
+//                Intent intent = new Intent(Intent.ACTION_MAIN);
+//                intent.addCategory(Intent.CATEGORY_LAUNCHER);
+//
+//                // 设置ComponentName参数1:packagename参数2:MainActivity路径
+//                ComponentName cn = new ComponentName(packageName, className);
+//                intent.setComponent(cn);
+//                startActivity(intent);
+//            }
+//        }
     }
     //创建下来的pop
 
@@ -217,12 +261,27 @@ public class AllApplicationActivity extends MvpActivity<AppApplicationPresenter>
                 if (popWindow.isShowing()) {
                     popWindow.dismiss();
                 }
+                need = false;
                 Intent intent = new Intent(AllApplicationActivity.this , DownLoadActivity.class);
                 startActivity(intent);
             }
         });
     }
 
+
+    @Override
+    public void getControlTime(OrdinalBooleanEntity entity) {
+        //获取到当前返回的时间
+        //来判定是否在可用时间段内
+        PackageManager pm = getPackageManager();
+        if(entity.getData()){
+            pm.setApplicationEnabledSetting(installList.get(selectPos).getAppPackageName(), PackageManager.COMPONENT_ENABLED_STATE_ENABLED, 0);
+            startActivityByPackageName(installList.get(selectPos).getAppPackageName());
+        }else{
+            pm.setApplicationEnabledSetting(installList.get(selectPos).getAppPackageName(), PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER, 0);
+            Toast.makeText(mContext,"该时间段禁止"+ installList.get(selectPos).getAppName()+"使用",Toast.LENGTH_SHORT).show();
+        }
+    }
 
     @Override
     public void getAppList(ApplicationResult result) {
@@ -241,7 +300,7 @@ public class AllApplicationActivity extends MvpActivity<AppApplicationPresenter>
         for (int i = 0; i < install.size(); i++) {
             for (int j = 0; j < allapp.size(); j++) {
                 if (allapp.get(j).appPackageName.equals(install.get(i).packageName)) {
-                    installList.add(install.get(i));
+                    installList.add(allapp.get(j));
                 }
             }
         }
