@@ -23,6 +23,8 @@ import com.wanny.amssutdents.amsstudent_business.location_save.LocationBody;
 import com.wanny.amssutdents.amsstudent_business.location_save.SaveLocaImpl;
 import com.wanny.amssutdents.amsstudent_business.location_save.SvaeLocPresenter;
 import com.wanny.amssutdents.framework_care.OrdinalResultEntity;
+import com.wanny.amssutdents.framework_utils.MacOperate;
+import com.wanny.amssutdents.framework_utils.PreferenceUtil;
 
 import java.io.IOException;
 import java.util.List;
@@ -192,9 +194,9 @@ public class LocationUploadService extends Service {
         //提交经纬度
        //执行网络请求
         LocationBody body = new LocationBody();
-        body.setMac("");
-        body.setStudentNumber("");
-        body.setDatetime(TimeEx.getStringTime14());
+        body.setMac(MacOperate.getMac(getApplicationContext()));
+        body.setStudentNumber(PreferenceUtil.getInstance(getApplicationContext()).getString("StudentId",""));
+        body.setDatetime(TimeEx.getStringTime19());
         body.setLatitude(location.getLatitude());
         body.setLongitude(location.getLongitude());
         svaeLocPresenter.submitFileInfo(body);

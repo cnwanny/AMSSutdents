@@ -22,8 +22,7 @@ public class AmsStudentApplication extends Application {
         Intent intent = new Intent(this, ControlNetService.class);
         startService(intent);
 
-        Intent intentNet = new Intent(this, LocationUploadService.class);
-        startService(intentNet);
+
     }
 
     public static Context getContext(){

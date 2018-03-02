@@ -2,6 +2,7 @@ package com.wanny.amssutdents.framework_ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -13,7 +14,10 @@ import com.wanny.amssutdents.amsstudent_business.BodyReq;
 import com.wanny.amssutdents.amsstudent_business.login_mvp.LoginEntity;
 import com.wanny.amssutdents.amsstudent_business.login_mvp.LoginImpl;
 import com.wanny.amssutdents.amsstudent_business.login_mvp.LoginPresenter;
+import com.wanny.amssutdents.framework_care.ActivityStackManager;
 import com.wanny.amssutdents.framework_mvpbasic.MvpActivity;
+import com.wanny.amssutdents.framework_utils.MacOperate;
+import com.wanny.amssutdents.framework_utils.PreferenceUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -46,23 +50,30 @@ public class LoginActivity extends MvpActivity<LoginPresenter> implements LoginI
 
     @OnClick(R.id.textView)
     void startLogin(View view){
-        BodyReq bodyReq = new BodyReq();
-        bodyReq.setMac("04:e6:76:c3:74:32");
-        bodyReq.setStudentNumber("cc20171212001");
-        mvpPresenter.login(bodyReq,"正在登录");
+        if(!TextUtils.isEmpty(editText.getText())){
+            BodyReq bodyReq = new BodyReq();
+            bodyReq.setMac(MacOperate.getMac(mContext));
+            bodyReq.setStudentNumber(editText.getText().toString());
+            mvpPresenter.login(bodyReq,"正在登录");
+        }else{
+            Toast.makeText(mContext,"请输入学号",Toast.LENGTH_SHORT).show();
+        }
     }
-
-
-
 
     @Override
     public void success(LoginEntity s) {
         Toast.makeText(mContext,s.getMessage(),Toast.LENGTH_SHORT).show();
         if(s.isStatus()){
+            PreferenceUtil.getInstance(mContext).saveString("StudentId",editText.getText().toString());
             Intent intent = new Intent(LoginActivity.this , AllApplicationActivity.class);
             startActivity(intent);
         }
+    }
 
+
+    @OnClick(R.id.clos_image)
+    void closeActivity(View view) {
+        ActivityStackManager.getInstance().exitActivity(mActivity);
     }
 
     @Override

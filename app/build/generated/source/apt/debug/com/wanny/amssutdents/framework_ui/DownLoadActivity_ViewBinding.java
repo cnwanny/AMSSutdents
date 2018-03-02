@@ -18,6 +18,8 @@ import java.lang.Override;
 public class DownLoadActivity_ViewBinding<T extends DownLoadActivity> implements Unbinder {
   protected T target;
 
+  private View view2131230795;
+
   private View view2131230796;
 
   private View view2131230797;
@@ -27,7 +29,15 @@ public class DownLoadActivity_ViewBinding<T extends DownLoadActivity> implements
     this.target = target;
 
     View view;
-    target.downClose = Utils.findRequiredViewAsType(source, R.id.down_close, "field 'downClose'", ImageView.class);
+    view = Utils.findRequiredView(source, R.id.down_close, "field 'downClose' and method 'closeActivity'");
+    target.downClose = Utils.castView(view, R.id.down_close, "field 'downClose'", ImageView.class);
+    view2131230795 = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.closeActivity(p0);
+      }
+    });
     view = Utils.findRequiredView(source, R.id.down_install, "field 'downInstall' and method 'setInstall'");
     target.downInstall = Utils.castView(view, R.id.down_install, "field 'downInstall'", TextView.class);
     view2131230796 = view;
@@ -64,6 +74,8 @@ public class DownLoadActivity_ViewBinding<T extends DownLoadActivity> implements
     target.installedRecycle = null;
     target.notinstallRecycle = null;
 
+    view2131230795.setOnClickListener(null);
+    view2131230795 = null;
     view2131230796.setOnClickListener(null);
     view2131230796 = null;
     view2131230797.setOnClickListener(null);

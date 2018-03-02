@@ -17,6 +17,8 @@ import java.lang.Override;
 public class LoginActivity_ViewBinding<T extends LoginActivity> implements Unbinder {
   protected T target;
 
+  private View view2131230780;
+
   private View view2131230911;
 
   @UiThread
@@ -24,7 +26,15 @@ public class LoginActivity_ViewBinding<T extends LoginActivity> implements Unbin
     this.target = target;
 
     View view;
-    target.closImage = Utils.findRequiredViewAsType(source, R.id.clos_image, "field 'closImage'", ImageView.class);
+    view = Utils.findRequiredView(source, R.id.clos_image, "field 'closImage' and method 'closeActivity'");
+    target.closImage = Utils.castView(view, R.id.clos_image, "field 'closImage'", ImageView.class);
+    view2131230780 = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.closeActivity(p0);
+      }
+    });
     target.editText = Utils.findRequiredViewAsType(source, R.id.editText, "field 'editText'", EditText.class);
     view = Utils.findRequiredView(source, R.id.textView, "field 'textView' and method 'startLogin'");
     target.textView = Utils.castView(view, R.id.textView, "field 'textView'", TextView.class);
@@ -47,6 +57,8 @@ public class LoginActivity_ViewBinding<T extends LoginActivity> implements Unbin
     target.editText = null;
     target.textView = null;
 
+    view2131230780.setOnClickListener(null);
+    view2131230780 = null;
     view2131230911.setOnClickListener(null);
     view2131230911 = null;
 

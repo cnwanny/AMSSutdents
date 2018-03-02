@@ -1,4 +1,4 @@
-#Mon Feb 26 18:31:40 CST 2018
+#Fri Mar 02 18:36:09 CST 2018
 base.0=E\:\\AMSSutdents\\app\\build\\intermediates\\transforms\\dex\\release\\0
 path.0=classes.dex
 renamed.0=classes.dex

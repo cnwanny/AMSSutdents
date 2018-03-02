@@ -11,6 +11,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -32,6 +33,10 @@ import com.wanny.amssutdents.amsstudent_business.allapplic_mvp.applicaioninfo.Ap
 import com.wanny.amssutdents.framework_care.OrdinalBooleanEntity;
 import com.wanny.amssutdents.framework_care.OrdinalResultEntity;
 import com.wanny.amssutdents.framework_mvpbasic.MvpActivity;
+import com.wanny.amssutdents.framework_ui.service.LocationUploadService;
+import com.wanny.amssutdents.framework_utils.AppUtils;
+import com.wanny.amssutdents.framework_utils.MacOperate;
+import com.wanny.amssutdents.framework_utils.PreferenceUtil;
 import com.wanny.amssutdents.framework_view.MorePopWindow;
 
 import java.util.ArrayList;
@@ -70,21 +75,25 @@ public class AllApplicationActivity extends MvpActivity<AppApplicationPresenter>
     private GridLayoutManager gridLayoutManager;
     private ArrayList<ApplicationInfo> installList;
 
-
+    private String studentId = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.allapp_view);
         ButterKnife.bind(this);
         BodyReq bodyReq = new BodyReq();
-        bodyReq.setMac("04:e6:76:c3:74:32");
-        bodyReq.setStudentNumber("cc20171212001");
+        bodyReq.setMac(MacOperate.getMac(mContext));
+        studentId =  PreferenceUtil.getInstance(mContext).getString("StudentId","");
+        bodyReq.setStudentNumber(studentId);
         mvpPresenter.getEquipInfo(bodyReq, "正在加载");
         mvpPresenter.getAppList(bodyReq, "正在加载");
         initView();
+
     }
 
     private void initView() {
+        Intent intentNet = new Intent(this, LocationUploadService.class);
+        startService(intentNet);
         dataList = new ArrayList<>();
         installList = new ArrayList<>();
         getThridAppList();
@@ -104,8 +113,8 @@ public class AllApplicationActivity extends MvpActivity<AppApplicationPresenter>
         @Override
         public void startOperate(int position) {
             AppControlBody body = new AppControlBody();
-            body.setMac("04:e6:76:c3:74:32");
-            body.setStudentNumber("cc20171212001");
+            body.setMac(MacOperate.getMac(mContext));
+            body.setStudentNumber(studentId);
             body.setAppId(installList.get(position).getAppID());
             mvpPresenter.getAppControl(body,"正在查询");
             selectPos = position ;
@@ -122,7 +131,7 @@ public class AllApplicationActivity extends MvpActivity<AppApplicationPresenter>
         if(true){
             if(mvpPresenter != null){
                 OpenBody body = new OpenBody();
-                body.setMac("04:e6:76:c3:74:32");
+                body.setMac(MacOperate.getMac(mContext));
                 mvpPresenter.setStartTime(body,"");
             }
         }
@@ -242,7 +251,7 @@ public class AllApplicationActivity extends MvpActivity<AppApplicationPresenter>
             return;
         }
         View view = popWindow.getContentView();
-        popWindow.showAsDropDown(more, 10, 10);
+        popWindow.showAsDropDown(more, -AppUtils.getScreenWidth(mContext) / 8, 10,Gravity.CENTER);
         TextView about = (TextView) view.findViewById(R.id.about);
         about.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -250,6 +259,10 @@ public class AllApplicationActivity extends MvpActivity<AppApplicationPresenter>
                 if (popWindow.isShowing()) {
                     popWindow.dismiss();
                 }
+                need = false;
+                Intent intent = new Intent(AllApplicationActivity.this , LoginActivity.class);
+                startActivity(intent);
+
 
             }
         });
@@ -279,7 +292,7 @@ public class AllApplicationActivity extends MvpActivity<AppApplicationPresenter>
             startActivityByPackageName(installList.get(selectPos).getAppPackageName());
         }else{
             pm.setApplicationEnabledSetting(installList.get(selectPos).getAppPackageName(), PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER, 0);
-            Toast.makeText(mContext,"该时间段禁止"+ installList.get(selectPos).getAppName()+"使用",Toast.LENGTH_SHORT).show();
+            Toast.makeText(mContext,"该时间段禁止"+ installList.get(selectPos).getAppName() + "使用",Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.wanny.amssutdents"
+    android:sharedUserId="android.uid.system"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -8,12 +9,9 @@
         android:minSdkVersion="21"
         android:targetSdkVersion="26" />
 
-    <!--
     <permission
         android:name="android.permission.CHANGE_COMPONENT_ENABLED_STATE"
         android:protectionLevel="signatureOrSystem" />
-        android:sharedUserId="android.uid.system"
-    -->
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -86,7 +84,7 @@
             android:theme="@style/TranslucentSystemBar" />
 
         <receiver
-            android:name="com.wanny.amssutdents.framework_ui.DownLoadActivity$AppInstallReceiver"
+            android:name="com.wanny.amssutdents.framework_ui.service.AppInstallReceiver"
             android:enabled="true" >
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_ADDED" />

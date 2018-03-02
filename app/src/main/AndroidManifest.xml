@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.wanny.amssutdents">
+    package="com.wanny.amssutdents"
+    android:sharedUserId="android.uid.system">
 
-<!--
 
     <permission
         android:name="android.permission.CHANGE_COMPONENT_ENABLED_STATE"
         android:protectionLevel="signatureOrSystem" />
-        android:sharedUserId="android.uid.system"
--->
 
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -86,21 +84,23 @@
             android:theme="@style/TranslucentSystemBar" />
 
         <receiver
-            android:name=".framework_ui.DownLoadActivity$AppInstallReceiver" android:enabled="true">
+            android:name=".framework_ui.service.AppInstallReceiver"
+            android:enabled="true">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
                 <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
                 <data android:scheme="package" />
             </intent-filter>
         </receiver>
 
-        <service android:name=".framework_ui.service.ControlNetService"
-            android:enabled="true"
-            />
+        <service
+            android:name=".framework_ui.service.ControlNetService"
+            android:enabled="true" />
 
-        <service android:name=".framework_ui.service.LocationUploadService"
-            android:enabled="true"
-            />
+        <service
+            android:name=".framework_ui.service.LocationUploadService"
+            android:enabled="true" />
     </application>
 
 </manifest>

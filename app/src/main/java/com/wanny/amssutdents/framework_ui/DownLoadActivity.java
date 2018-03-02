@@ -12,6 +12,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.PersistableBundle;
 import android.provider.Settings;
 import android.support.v4.content.FileProvider;
 import android.support.v7.widget.LinearLayoutManager;
@@ -33,8 +34,12 @@ import com.wanny.amssutdents.amsstudent_business.downapp_mvp.DownAppPresenter;
 import com.wanny.amssutdents.amsstudent_business.downapp_mvp.InstalledAdapter;
 import com.wanny.amssutdents.amsstudent_business.downapp_mvp.NotInstallAdapter;
 import com.wanny.amssutdents.amsstudent_business.downapp_mvp.UpdateEntity;
+import com.wanny.amssutdents.framework_care.ActivityStackManager;
 import com.wanny.amssutdents.framework_mvpbasic.MvpActivity;
+import com.wanny.amssutdents.framework_ui.service.AppInstallReceiver;
 import com.wanny.amssutdents.framework_utils.AppUtils;
+import com.wanny.amssutdents.framework_utils.MacOperate;
+import com.wanny.amssutdents.framework_utils.PreferenceUtil;
 import com.wanny.amssutdents.framework_utils.StoragePath;
 import com.wanny.amssutdents.framework_view.ListViewItemDecotion;
 
@@ -85,19 +90,25 @@ public class DownLoadActivity extends MvpActivity<DownAppPresenter> implements D
     private ArrayList<ApplicationInfo> notInstallList;
     private InstalledAdapter installAdapter;
     private NotInstallAdapter notInstallAdapter;
-
+    private String studentId = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.download_view);
         ButterKnife.bind(this);
+        studentId = PreferenceUtil.getInstance(mContext).getString("StudentId", "");
         initView();
         getThridAppList();
         startReginster();
     }
+
     //加载的进度设置显示
-    private Queue<UpdateEntity> progressQue = new LinkedList<>();
+//    private Queue<UpdateEntity> progressQue = new LinkedList<>();
+    private TextView progerss;
+
+    private int selectPost = -1;
+
     private boolean isLoading = false;
 
     private void initView() {
@@ -125,12 +136,12 @@ public class DownLoadActivity extends MvpActivity<DownAppPresenter> implements D
 
 
         BodyReq bodyReq = new BodyReq();
-        bodyReq.setMac("04:e6:76:c3:74:32");
-        bodyReq.setStudentNumber("cc20171212001");
+        bodyReq.setMac(MacOperate.getMac(mContext));
+        bodyReq.setStudentNumber(studentId);
         mvpPresenter.getAppList(bodyReq, "正在加载");
     }
 
-
+    //设置应用启用或者禁用
     private InstalledAdapter.InstalledListener installedListener = new InstalledAdapter.InstalledListener() {
         @Override
         public void setEnable(int position) {
@@ -142,8 +153,10 @@ public class DownLoadActivity extends MvpActivity<DownAppPresenter> implements D
             } else {
                 pm.setApplicationEnabledSetting(info.packageName, PackageManager.COMPONENT_ENABLED_STATE_DEFAULT, 0);
             }
+            updataList();
             installAdapter.notifyItemChanged(position);
         }
+
         //卸载应用
         @Override
         public void uninstall(int position) {
@@ -157,23 +170,16 @@ public class DownLoadActivity extends MvpActivity<DownAppPresenter> implements D
 
 
     //广播
-    public  class AppInstallReceiver extends BroadcastReceiver {
-
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            String action = intent.getAction();
-            updataList();
-        }
-    }
 
     private AppInstallReceiver receiver;
-    private void startReginster(){
+
+    private void startReginster() {
         IntentFilter filter = new IntentFilter();
         filter.addAction(Intent.ACTION_PACKAGE_ADDED);
         filter.addAction(Intent.ACTION_PACKAGE_REMOVED);
         filter.setPriority(0);//设置动态优先级
-        receiver  = new AppInstallReceiver();
-        registerReceiver(receiver,filter);
+        receiver = new AppInstallReceiver(this);
+        registerReceiver(receiver, filter);
     }
 
 
@@ -181,22 +187,26 @@ public class DownLoadActivity extends MvpActivity<DownAppPresenter> implements D
         @Override
         public void startDown(TextView textView, int position) {
             //启动下载
-            UpdateEntity updateEntity = new UpdateEntity();
-            updateEntity.setPosition(position);
-            updateEntity.setTextView(textView);
-            progressQue.offer(updateEntity);
-            if(isLoading){
-                 textView.setText("队列中");
-            }else{
+//            UpdateEntity updateEntity = new UpdateEntity();
+//            updateEntity.setPosition(position);
+//            updateEntity.setTextView(textView);
+//            progressQue.offer(updateEntity);
+            if (isLoading) {
+                    textView.setText("队列中");
+            } else {
+                progerss = textView;
+                selectPost = position;
                 isLoading = true;
                 String appUrl = "http://118.190.201.93:81/DownLoadFile.ashx?appId=" + notInstallList.get(position).getAppID();
-                startDownLoad(appUrl, notInstallList.get(position).getAppName());
+                currentAppName = notInstallList.get(position).getAppName();
+                startDownLoad(appUrl, currentAppName);
             }
         }
     };
 
-    private void startDownLoad(String appUpdateUrl, String appName) {
+    private String currentAppName;
 
+    private void startDownLoad(String appUpdateUrl, String appName) {
         String localpath;
         if (!TextUtils.isEmpty(StoragePath.apkDir)) {
             File file = new File(StoragePath.apkDir, appName + ".apk");
@@ -209,10 +219,6 @@ public class DownLoadActivity extends MvpActivity<DownAppPresenter> implements D
             localpath = StoragePath.apkDir + "/" + appName + ".apk";
         }
         File locaFile = new File(localpath);
-        if (locaFile.exists()) {
-            installApk();
-            return;
-        }
         startLoading(appUpdateUrl, locaFile);
     }
 
@@ -256,6 +262,7 @@ public class DownLoadActivity extends MvpActivity<DownAppPresenter> implements D
                     os.close();
                     inputStream.close();
                     //执行完毕后。
+
                     installApk();
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -268,6 +275,7 @@ public class DownLoadActivity extends MvpActivity<DownAppPresenter> implements D
     //自动安装apk
     @TargetApi(Build.VERSION_CODES.O)
     private void installApk() {
+        isLoading = false;
         //删除数据库 ，每次更新app的时候。
 //        FileOperateData fileOperateData = FileOperateData.getInstance(getApplicationContext());
 //        fileOperateData.deleteAllData();
@@ -279,7 +287,7 @@ public class DownLoadActivity extends MvpActivity<DownAppPresenter> implements D
                 startActivity(intent);
             }
         }
-        String appName = notInstallList.get(progressQue.poll().getPosition()).getAppName();
+        String appName = currentAppName;
         File apkFile = new File(StoragePath.apkDir + "/" + appName + ".apk");
         if (!apkFile.exists()) {
             return;
@@ -326,6 +334,24 @@ public class DownLoadActivity extends MvpActivity<DownAppPresenter> implements D
     }
 
 
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
+        outState.putInt("pos",selectPost);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        selectPost = savedInstanceState.getInt("pos", selectPost);
+        View view = notinstallRecycle.getChildAt(selectPost);
+        if (null != notinstallRecycle.getChildViewHolder(view)) {
+            NotInstallAdapter.InstalledHolder viewHolder = (NotInstallAdapter.InstalledHolder) notinstallRecycle.getChildViewHolder(view);
+            if(viewHolder != null){
+                progerss = (TextView) viewHolder.itemView.findViewById(R.id.down_notinstall);
+            }
+        }
+    }
     //更新api
     private Handler mHandler = new Handler() {
         @Override
@@ -333,45 +359,55 @@ public class DownLoadActivity extends MvpActivity<DownAppPresenter> implements D
             super.handleMessage(msg);
             //当前经度
             if (msg.what == 0x0001) {
-//                View view = notinstallRecycle.getLayoutManager().getChildAt(0);
-//                TextView progress = (TextView) view.findViewById(R.id.down_notinstall);
-                if(progressQue.size() > 0){
-                    UpdateEntity entity = progressQue.poll();
-                    if(entity != null && entity.getTextView() != null){
-                        entity.getTextView().setText((String) (msg.obj).toString() + "%");
-                    }
+             if(progerss != null){
+                 progerss.setText((String) (msg.obj).toString() + "%");
+             }
+//                if (progressQue.size() > 0) {
+//                    UpdateEntity entity = progressQue.poll();
+//                    if (entity != null && entity.getTextView() != null) {
+//                        entity.getTextView().setText((String) (msg.obj).toString() + "%");
+//                    }
+//                }
+            } else if (msg.what == 0x0002) {
+
+//                if (progressQue.size() > 0) {
+//                    progressQue.remove();
+//                } else {
+                if(progerss != null){
+                    progerss.setText("安装中");
                 }
-            }else if(msg.what == 0x0002){
-                if(progressQue.size() > 0){
-                    progressQue.remove();
-                }else{
-                    isLoading = false;
-                    return;
-                }
-                if(progressQue.size() > 0){
-                    String appUrl = "http://118.190.201.93:81/DownLoadFile.ashx?appId=" + notInstallList.get(progressQue.poll().getPosition()).getAppID();
-                    startDownLoad(appUrl, notInstallList.get(progressQue.poll().getPosition()).getAppName());
-                }
+//                    return;
+//                }
+//                if (progressQue.size() > 0) {
+//                    String appUrl = "http://118.190.201.93:81/DownLoadFile.ashx?appId=" + notInstallList.get(progressQue.poll().getPosition()).getAppID();
+//                    startDownLoad(appUrl, notInstallList.get(progressQue.poll().getPosition()).getAppName());
+//                }
             }
         }
     };
 
-
     private ArrayList<PackageInfo> dataList;
 
     private void getThridAppList() {
+        dataList.clear();
         PackageManager packageManager = this.getPackageManager();
         List<PackageInfo> packageInfoList = packageManager.getInstalledPackages(0);
         for (int i = 0; i < packageInfoList.size(); i++) {
             PackageInfo pak = (PackageInfo) packageInfoList.get(i);
             //判断是否为系统预装的应用
-            if ((pak.applicationInfo.flags & pak.applicationInfo.FLAG_SYSTEM) <= 0 ) {
+            if ((pak.applicationInfo.flags & pak.applicationInfo.FLAG_SYSTEM) <= 0) {
                 // 第三方应用
                 dataList.add(pak);
             }
         }
         //获取包名： mPackageInfo.packageName
 //        获取icon： mPackageInfo.getApplicationIcon(applicationInfo);
+    }
+
+
+    @OnClick(R.id.down_close)
+    void closeActivity(View view) {
+        ActivityStackManager.getInstance().exitActivity(mActivity);
     }
 
 
@@ -405,18 +441,21 @@ public class DownLoadActivity extends MvpActivity<DownAppPresenter> implements D
         }
     }
 
-   //更新list
-    private void updataList(){
+    //更新list
+    public void updataList() {
+        getThridAppList();
         rexApp(dataList, allAppList);
         setNotInstall(allAppList);
         installAdapter.notifyDataSetChanged();
         notInstallAdapter.notifyDataSetChanged();
     }
-     //网络获取到的全部的应用列表
+
+    //网络获取到的全部的应用列表
     private ArrayList<ApplicationInfo> allAppList = new ArrayList<>();
 
 
     private void rexApp(ArrayList<PackageInfo> install, ArrayList<ApplicationInfo> allapp) {
+        installList.clear();
         for (int i = 0; i < install.size(); i++) {
             for (int j = 0; j < allapp.size(); j++) {
                 if (allapp.get(j).appPackageName.equals(install.get(i).packageName)) {
@@ -427,6 +466,7 @@ public class DownLoadActivity extends MvpActivity<DownAppPresenter> implements D
     }
 
     private void setNotInstall(ArrayList<ApplicationInfo> allapp) {
+        notInstallList.clear();
         for (int j = 0; j < allapp.size(); j++) {
             boolean isNot = true;
             for (int i = 0; i < installList.size(); i++) {
@@ -455,6 +495,7 @@ public class DownLoadActivity extends MvpActivity<DownAppPresenter> implements D
     public void hide() {
 
     }
+
     //
     @Override
     protected DownAppPresenter createPresenter() {
@@ -465,7 +506,7 @@ public class DownLoadActivity extends MvpActivity<DownAppPresenter> implements D
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(receiver != null){
+        if (receiver != null) {
             unregisterReceiver(receiver);
         }
     }

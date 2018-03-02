@@ -1004,10 +1004,11 @@ int drawable notification_tile_bg 0x7f070076
 int drawable notify_panel_notification_icon_bg 0x7f070077
 int drawable notinstall_drawable 0x7f070078
 int drawable notinstall_selected_drawable 0x7f070079
-int drawable recycler_drawable 0x7f07007a
-int drawable tooltip_frame_dark 0x7f07007b
-int drawable tooltip_frame_light 0x7f07007c
-int drawable white_radius 0x7f07007d
+int drawable popwindow_drawable 0x7f07007a
+int drawable recycler_drawable 0x7f07007b
+int drawable tooltip_frame_dark 0x7f07007c
+int drawable tooltip_frame_light 0x7f07007d
+int drawable white_radius 0x7f07007e
 int id ALT 0x7f080000
 int id CTRL 0x7f080001
 int id FUNCTION 0x7f080002

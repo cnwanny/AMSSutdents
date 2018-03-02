@@ -1,5 +1,6 @@
 package com.wanny.amssutdents.amsstudent_business.allapplic_mvp.applicaioninfo;
 
+import android.app.Application;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -70,7 +71,17 @@ public class AllAppAdapter extends RecyclerView.Adapter<AllAppAdapter.AllAppHold
        if(dataList != null){
            ApplicationInfo info = dataList.get(position);
            if(info != null){
-               Glide.with(context).load(info.getAppIco()).into(holder.appicon);
+//               Glide.with(context).load(info.getAppIco()).into(holder.appicon);
+              PackageManager packageManager = context.getPackageManager();
+               try {
+                   android.content.pm.ApplicationInfo application = packageManager.getPackageInfo(dataList.get(position).getAppPackageName().toString(), 0).applicationInfo;
+                    if(application != null){
+                        holder.appicon.setImageDrawable(application.loadIcon(packageManager));
+                    }
+               }catch (Exception e){
+
+               }
+
                holder.appname.setText(info.getAppName());
            }
        }
